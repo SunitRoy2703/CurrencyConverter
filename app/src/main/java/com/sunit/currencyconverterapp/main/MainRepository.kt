@@ -5,6 +5,6 @@ import com.sunit.currencyconverterapp.util.Resource
 
 interface MainRepository  {
 
-    suspend fun getRates( headers: Map<String, String>, base: String): Resource<CurrencyResponse>
+    suspend fun getRates( base: String): Resource<CurrencyResponse>
 
 }

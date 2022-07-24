@@ -10,7 +10,7 @@ class DefaultMainRepository @Inject constructor(
     private val api : CurrencyApi
 ) : MainRepository {
 
-    override suspend fun getRates(headers: Map<String, String>, base: String): Resource<CurrencyResponse> {
+    override suspend fun getRates( base: String): Resource<CurrencyResponse> {
         return try {
             val response = api.getRates(base)
             val result = response.body()
