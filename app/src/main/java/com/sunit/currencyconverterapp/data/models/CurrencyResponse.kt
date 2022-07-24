@@ -14,6 +14,4 @@ data class CurrencyResponse(
     val success: Boolean,
     @SerializedName("timestamp")
     val timestamp: Int
-
-
 )

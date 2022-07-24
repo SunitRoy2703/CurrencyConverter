@@ -1,7 +1,6 @@
 package com.sunit.currencyconverterapp.data
 
 import com.sunit.currencyconverterapp.data.models.CurrencyResponse
-import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers

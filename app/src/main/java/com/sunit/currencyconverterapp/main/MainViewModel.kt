@@ -9,8 +9,7 @@ import com.sunit.currencyconverterapp.util.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import java.lang.Math.round
-import kotlin.math.roundToLong
+import kotlin.math.round
 
 class MainViewModel @ViewModelInject constructor(
     private val repository: MainRepository,
@@ -35,6 +34,11 @@ class MainViewModel @ViewModelInject constructor(
             _conversion.value = CurrencyEvent.Failure("Not a valid amount")
             return
         }
+
+        if (fromCurrency == toCurrency){
+            _conversion.value = CurrencyEvent.Failure("Conversion of same currency is not allowed")
+            return
+        }
         viewModelScope.launch(dispatchers.io) {
             _conversion.value = CurrencyEvent.Loading
             when(val ratesResponse = repository.getRates(mutableMapOf<String, String>("apikey" to "PuCy6V4q1tD5EQ83SeyF5UHbXYjCUtJ5"),fromCurrency)) {
@@ -48,7 +52,7 @@ class MainViewModel @ViewModelInject constructor(
                     if(rate == null) {
                         _conversion.value = CurrencyEvent.Failure("Unexpected error")
                     } else {
-                        val convertedCurrency = (fromAmount * rate * 100).roundToLong() / 10
+                        val convertedCurrency = round(fromAmount * rate * 100) / 100
                         _conversion.value = CurrencyEvent.Success(
                             "$fromAmount $fromCurrency = $convertedCurrency $toCurrency"
                         )

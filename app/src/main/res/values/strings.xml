@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Currency Converter App</string>
+    <string name="app_name">GFG Currency Converter App</string>
     <string name="base_url">https://api.apilayer.com/exchangerates_data</string>
     <string name="apikey">PuCy6V4q1tD5EQ83SeyF5UHbXYjCUtJ5</string>
     <string-array name="currency_codes">

@@ -15,28 +15,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 
-private const val BASE_URL = "https://api.apilayer.com/exchangerates_data/"
+private const val BASE_URL = "https://api.apilayer.com/"
 
 @Module
 @InstallIn(ApplicationComponent::class)
 object AppModule {
-
-//    @Provides
-//    @Singleton
-//    fun provideOkHttp(): OkHttpClient {
-//        val builder: OkHttpClient.Builder = OkHttpClient.Builder()
-//            .addInterceptor(Interceptor { chain ->
-//                var request: Request = chain.request()
-//                val builder: Request.Builder = request.newBuilder()
-//                    .addHeader("apikey", "PuCy6V4q1tD5EQ83SeyF5UHbXYjCUtJ5")
-//
-//                request = builder.build()
-//                return@Interceptor chain.proceed(request)
-//            })
-//
-//        return builder.build()
-//    }
-
 
     @Singleton
     @Provides
